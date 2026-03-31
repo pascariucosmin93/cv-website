@@ -108,7 +108,7 @@ jobs:
           path = Path("apps/cv-website/kustomization.yaml")
           data = path.read_text()
           version = os.environ["RELEASE_VERSION"]
-          data = re.sub(r'(newTag:\s*")[^"]+(")', rf'\1{version}\2', data, count=1)
+          data = re.sub(r'(newTag:\s*")[^"]+(")', rf'\g<1>{version}\g<2>', data, count=1)
           path.write_text(data)
           PY
 
