@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmin Pascariu - Cloud/DevOps Engineer</title>
+    <link rel="stylesheet" href="css/style.css?v=20260331-2">
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+
+        <!-- PROFILE -->
+        <section class="profile-section animate-in">
+            <div class="avatar">CP</div>
+            <div class="profile-info">
+                <h1>Cosmin Pascariu</h1>
+                <div class="role">Cloud/DevOps Engineer</div>
+                <div class="profile-cta">
+                    <a href="mailto:pascariucosmin93@gmail.com" class="contact-cta primary">Email me</a>
+                    <a href="tel:+40749571122" class="contact-cta">Call me</a>
+                    <a href="https://www.linkedin.com/in/pascariu-cosmin" target="_blank" class="contact-cta">LinkedIn</a>
+                </div>
+                <div class="profile-meta">
+                    <div class="meta-item">
+                        <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.78 11.78a.75.75 0 01-1.06 0L7.25 8.31V4a.75.75 0 011.5 0v3.69l3.03 3.03a.75.75 0 010 1.06z"/></svg>
+                        <span>Available</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 16 16"><path d="M12.536 2.464a4.251 4.251 0 00-7.072 0C4.037 4.04 3 6.44 3 8.5c0 2.51 1.56 4.65 3.76 5.52a.75.75 0 10.48-1.42C5.58 11.84 4.5 10.28 4.5 8.5c0-1.66.83-3.66 2.036-4.786a2.751 2.751 0 014.928 0C12.67 4.84 13.5 6.84 13.5 8.5c0 1.78-1.08 3.34-2.74 4.1a.75.75 0 10.48 1.42C13.44 13.15 15 11.01 15 8.5c0-2.06-1.037-4.46-2.464-6.036z"/></svg>
+                        <span>Iasi, Romania</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATUS BAR -->
+        <div class="status-bar animate-in">
+            <div class="status-dot"></div>
+            <span class="status-text">All systems operational</span>
+            <span class="separator">|</span>
+            <span class="uptime">uptime: <span id="uptime">calculating...</span></span>
+            <span class="separator">|</span>
+            <span class="uptime">last deploy: today</span>
+        </div>
+
+        <!-- ABOUT - Interactive Terminal -->
+        <div class="terminal animate-in" id="interactive-terminal">
+            <div class="terminal-bar">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">cosmin@cloud ~ interactive shell</span>
+            </div>
+            <div class="terminal-commands">
+                <span class="cmd-btn active" data-cmd="about">cat about-me.yaml</span>
+                <span class="cmd-btn" data-cmd="skills">kubectl get pods -n skills</span>
+                <span class="cmd-btn" data-cmd="experience">git log --oneline career</span>
+                <span class="cmd-btn" data-cmd="contact">cat contact.json</span>
+                <span class="cmd-btn" data-cmd="neofetch">cat summary.md</span>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <div class="terminal-line">
+                    <span class="terminal-prompt">cosmin@cloud:~$</span>
+                    <span class="terminal-command" id="typed-cmd"></span>
+                    <span class="terminal-cursor" id="terminal-cursor"></span>
+                </div>
+                <div id="cmd-output"></div>
+                <div class="terminal-line" id="next-prompt" style="display:none;">
+                    <span class="terminal-prompt">cosmin@cloud:~$</span>
+                    <span class="terminal-cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE - GitHub Actions Pipeline -->
+        <div class="workflow animate-in" id="experience">
+            <div class="workflow-header" onclick="toggleWorkflow(this)">
+                <div class="workflow-header-left">
+                    <svg class="workflow-icon" viewBox="0 0 16 16" fill="var(--accent-green)">
+                        <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.78 4.22a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06 0l-2.5-2.5a.75.75 0 011.06-1.06L6.25 8.69l4.47-4.47a.75.75 0 011.06 0z"/>
+                    </svg>
+                    <span class="workflow-title">experience.yml</span>
+                    <span class="workflow-file">workflow run</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <span class="workflow-badge badge-success">completed</span>
+                    <svg class="workflow-toggle" viewBox="0 0 16 16" fill="var(--text-muted)">
+                        <path d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="workflow-body">
+                <div class="pipeline">
+                    <!-- Endava -->
+                    <div class="pipeline-job">
+                        <div class="job-icon running">
+                            <svg viewBox="0 0 16 16"><path d="M8 4a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">DevOps Engineer @ Endava</span>
+                            <span class="job-duration">Jun 2025 - Present</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Designing and operating cloud-native infrastructure on AWS and Azure</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Managing and scaling Kubernetes platforms (EKS/AKS)</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Building CI/CD pipelines and provisioning with Terraform</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Implementing security controls with IAM, Vault, and key management</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> End-to-end observability: Prometheus, Grafana, Loki, CloudWatch, Azure Monitor</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Managing DNS, certificate management, and networking</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-blue">AWS</span>
+                            <span class="tag tag-cyan">Azure</span>
+                            <span class="tag tag-purple">Kubernetes</span>
+                            <span class="tag tag-green">Terraform</span>
+                            <span class="tag tag-orange">GitHub Actions</span>
+                            <span class="tag tag-yellow">Vault</span>
+                        </div>
+                    </div>
+
+                    <!-- Ejobs -->
+                    <div class="pipeline-job">
+                        <div class="job-icon running">
+                            <svg viewBox="0 0 16 16"><path d="M8 4a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">DevOps Engineer @ Ejobs</span>
+                            <span class="job-duration">Feb 2022 - Present</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Managed on-premise infrastructure using Proxmox and VMware vCenter</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Linux administration and containerization with Docker & Kubernetes</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Implemented monitoring solutions with Grafana</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Automated operational tasks using Bash and Ansible</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Administered GitLab, ArgoCD, and SonarQube for automated delivery</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-cyan">Linux</span>
+                            <span class="tag tag-purple">Kubernetes</span>
+                            <span class="tag tag-blue">Docker</span>
+                            <span class="tag tag-green">Ansible</span>
+                            <span class="tag tag-orange">GitLab CI</span>
+                            <span class="tag tag-yellow">Proxmox</span>
+                        </div>
+                    </div>
+
+                    <!-- Winbet -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">DevOps Engineer @ Winbet</span>
+                            <span class="job-duration">Feb 2025 - May 2025</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Kubernetes, Helm, ArgoCD, GitLab/Gitea CI for continuous delivery</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Terraform, Ansible, and Vault for IaC and secret management</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> High-availability networking with Keepalived and HAProxy</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> CSI drivers for vSphere and Proxmox storage management</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Observability with Grafana, Prometheus, Loki and PowerDNS</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-purple">Helm</span>
+                            <span class="tag tag-green">ArgoCD</span>
+                            <span class="tag tag-yellow">Vault</span>
+                            <span class="tag tag-blue">HAProxy</span>
+                            <span class="tag tag-orange">Keepalived</span>
+                            <span class="tag tag-cyan">PowerDNS</span>
+                        </div>
+                    </div>
+
+                    <!-- Coface -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">System Administrator @ Coface</span>
+                            <span class="job-duration">Feb 2023 - Mar 2025</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Administered network resources, user access, and Windows servers</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Implemented backup strategies and disaster recovery planning</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Provided L1/L2 technical support, root cause analysis</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Managed Active Directory, DNS, DHCP, SCCM, Azure AD</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-yellow">Windows Server</span>
+                            <span class="tag tag-blue">Azure AD</span>
+                            <span class="tag tag-cyan">Active Directory</span>
+                            <span class="tag tag-green">SCCM</span>
+                        </div>
+                    </div>
+
+                    <!-- Magnetic IT -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">IT Specialist @ Magnetic IT</span>
+                            <span class="job-duration">Apr 2022 - Feb 2023</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Active Directory administration and network resource management</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Microsoft Office 365 (Exchange, SharePoint, Teams)</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Azure Active Directory for identity and access control</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> DNS infrastructure, IP management, SCCM deployments</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-blue">O365</span>
+                            <span class="tag tag-cyan">Azure AD</span>
+                            <span class="tag tag-yellow">DNS</span>
+                            <span class="tag tag-green">SCCM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION - Pipeline Style -->
+        <div class="workflow animate-in" id="education">
+            <div class="workflow-header" onclick="toggleWorkflow(this)">
+                <div class="workflow-header-left">
+                    <svg class="workflow-icon" viewBox="0 0 16 16" fill="var(--accent-blue)">
+                        <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.78 4.22a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06 0l-2.5-2.5a.75.75 0 011.06-1.06L6.25 8.69l4.47-4.47a.75.75 0 011.06 0z"/>
+                    </svg>
+                    <span class="workflow-title">education.yml</span>
+                    <span class="workflow-file">workflow run</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <span class="workflow-badge badge-success">completed</span>
+                    <svg class="workflow-toggle" viewBox="0 0 16 16" fill="var(--text-muted)">
+                        <path d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="workflow-body">
+                <div class="pipeline">
+                    <!-- FEG -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">Analyst Programmer - FEG</span>
+                            <span class="job-duration">2013 - 2014</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Client-server communication fundamentals</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> HTML, CSS, JavaScript</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> C++ programming</div>
+                        </div>
+                    </div>
+
+                    <!-- Dimitrie Leonida -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">Electrician Technician - Dimitrie Leonida</span>
+                            <span class="job-duration">2009 - 2012</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> Iasi | Vocational School</div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="pipeline-job">
+                        <div class="job-icon success">
+                            <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+                        </div>
+                        <div class="job-header">
+                            <span class="job-name">Certifications</span>
+                            <span class="job-duration">2021</span>
+                        </div>
+                        <div class="job-details">
+                            <div class="step"><span class="step-arrow">&#9656;</span> CompTIA A+ (Dec 2021) - Hardware, OS, networking, cybersecurity</div>
+                            <div class="step"><span class="step-arrow">&#9656;</span> Manual Testing (Oct 2021) - QA, Agile, SCRUM, Jira</div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag tag-orange">CompTIA A+</span>
+                            <span class="tag tag-blue">QA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS - Kubernetes Pod Style -->
+        <div class="workflow animate-in" id="skills">
+            <div class="workflow-header" onclick="toggleWorkflow(this)">
+                <div class="workflow-header-left">
+                    <svg class="workflow-icon" viewBox="0 0 16 16" fill="var(--accent-purple)">
+                        <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.78 4.22a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06 0l-2.5-2.5a.75.75 0 011.06-1.06L6.25 8.69l4.47-4.47a.75.75 0 011.06 0z"/>
+                    </svg>
+                    <span class="workflow-title">skills-deploy.yml</span>
+                    <span class="workflow-file">workflow run</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <span class="workflow-badge badge-running">running</span>
+                    <svg class="workflow-toggle" viewBox="0 0 16 16" fill="var(--text-muted)">
+                        <path d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="workflow-body">
+                <div class="skills-grid">
+                    <div class="skill-pod cloud">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: cloud</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">Cloud Platforms</div>
+                        <div class="pod-items">
+                            <span class="pod-item">AWS</span>
+                            <span class="pod-item">Azure</span>
+                            <span class="pod-item">On-Prem</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-pod cicd">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: ci-cd</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">CI/CD & Automation</div>
+                        <div class="pod-items">
+                            <span class="pod-item">GitHub Actions</span>
+                            <span class="pod-item">GitLab CI</span>
+                            <span class="pod-item">Gitea CI</span>
+                            <span class="pod-item">Azure DevOps</span>
+                            <span class="pod-item">Jenkins</span>
+                            <span class="pod-item">ArgoCD</span>
+                            <span class="pod-item">Ansible</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-pod containers">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: containers</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">Containers & Orchestration</div>
+                        <div class="pod-items">
+                            <span class="pod-item">Docker</span>
+                            <span class="pod-item">Kubernetes</span>
+                            <span class="pod-item">Helm</span>
+                            <span class="pod-item">Proxmox</span>
+                            <span class="pod-item">VMware vCenter</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-pod monitoring">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: monitoring</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">Monitoring & Logging</div>
+                        <div class="pod-items">
+                            <span class="pod-item">Prometheus</span>
+                            <span class="pod-item">Grafana</span>
+                            <span class="pod-item">Loki</span>
+                            <span class="pod-item">Alloy</span>
+                            <span class="pod-item">CloudWatch</span>
+                            <span class="pod-item">Azure Monitor</span>
+                            <span class="pod-item">Nagios</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-pod scripting">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: scripting</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">Languages & IaC</div>
+                        <div class="pod-items">
+                            <span class="pod-item">Terraform</span>
+                            <span class="pod-item">Bash</span>
+                            <span class="pod-item">Python</span>
+                            <span class="pod-item">YAML</span>
+                            <span class="pod-item">SQL</span>
+                            <span class="pod-item">Vault</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-pod os">
+                        <div class="pod-header">
+                            <span class="pod-namespace">namespace: infrastructure</span>
+                            <span class="pod-status"><span class="pod-status-dot"></span> Running</span>
+                        </div>
+                        <div class="pod-title">OS & Networking</div>
+                        <div class="pod-items">
+                            <span class="pod-item">Linux</span>
+                            <span class="pod-item">Nginx</span>
+                            <span class="pod-item">Caddy</span>
+                            <span class="pod-item">HAProxy</span>
+                            <span class="pod-item">Keepalived</span>
+                            <span class="pod-item">PowerDNS</span>
+                            <span class="pod-item">DNS/DHCP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer animate-in">
+            <p>Built with passion & deployed via CI/CD</p>
+            <p style="margin-top:0.25rem;">
+                commit <span class="commit-hash">a3f7b2e</span> |
+                branch: main |
+                build: passing
+            </p>
+        </div>
+
+    </div>
+
+    <script src="js/main.js?v=20260331-1"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cv-website-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate static site layout
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f css/style.css
+          test -f js/main.js
+          grep -q "<!DOCTYPE html>" index.html
+          grep -q "<title>" index.html
+
+      - name: Build image
+        run: docker build -t cv-website:ci .
+
+      - name: Smoke test container
+        run: |
+          set -euo pipefail
+
+          cleanup() {
+            docker rm -f cv-website-ci >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+
+          docker run -d --name cv-website-ci -p 8080:80 cv-website:ci
+
+          for _ in $(seq 1 30); do
+            if curl --silent --show-error --fail http://127.0.0.1:8080/ | grep -q "Cosmin Pascariu"; then
+              exit 0
+            fi
+            sleep 2
+          done
+
+          docker logs cv-website-ci || true
+          exit 1

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cv-website
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pascariucosmin93/cv-gitops.git
+    targetRevision: main
+    path: apps/cv-website
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cv
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
