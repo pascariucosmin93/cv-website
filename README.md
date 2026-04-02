@@ -20,3 +20,7 @@ Static personal CV website served by Nginx and delivered through GitHub Actions,
 5. Argo CD syncs the new image into the cluster
 
 Manual promotion is handled by `promote.yml`, which can retag a tested `0.0.x` image to `1.0.0`, `1.0`, `1`, and `latest`.
+
+## Operations Notes
+
+- [K8s Network Policies](./k8s-network-policies/README.md)
