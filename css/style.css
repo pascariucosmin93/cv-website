@@ -649,12 +649,17 @@ body {
 
 #cmd-output {
     min-height: 120px;
+    overflow-x: auto;
 }
 
 #cmd-output .output-line {
     opacity: 0;
     transform: translateY(5px);
     animation: fadeInLine 0.3s ease forwards;
+}
+
+#cmd-output .output-line.pre {
+    white-space: pre-wrap;
 }
 
 @keyframes fadeInLine {
@@ -838,5 +843,77 @@ body {
 
     .contact-cta {
         width: 100%;
+    }
+}
+
+/* ===== RESPONSIVE: 480px (mobile) ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+    }
+
+    .profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-info .role {
+        font-size: 0.95rem;
+    }
+
+    .profile-section {
+        padding: 1.5rem 1rem;
+        gap: 1.25rem;
+    }
+
+    /* Status bar: wrap items and hide separators */
+    .status-bar {
+        flex-wrap: wrap;
+        row-gap: 0.3rem;
+    }
+
+    .status-bar .separator {
+        display: none;
+    }
+
+    /* Workflow: hide "workflow run" badge to save space */
+    .workflow-file {
+        display: none;
+    }
+
+    .workflow-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .workflow-body {
+        padding: 1rem;
+    }
+
+    /* Job header: stack name and duration */
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+    }
+
+    /* Terminal: smaller font, scrollable output */
+    .terminal-body {
+        font-size: 0.72rem;
+        padding: 1rem 0.75rem;
+    }
+
+    .terminal-commands {
+        padding: 0.6rem 0.75rem;
+    }
+
+    /* Neofetch: stack logo and info */
+    .neo-header {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
