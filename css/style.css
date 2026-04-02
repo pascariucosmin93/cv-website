@@ -620,6 +620,8 @@ body {
     padding: 0.75rem 1.25rem;
     border-bottom: 1px solid var(--border);
     background: rgba(22, 27, 34, 0.5);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .cmd-btn {
@@ -659,7 +661,7 @@ body {
 }
 
 #cmd-output .output-line.pre {
-    white-space: pre-wrap;
+    white-space: pre;
 }
 
 @keyframes fadeInLine {
@@ -909,6 +911,12 @@ body {
 
     .terminal-commands {
         padding: 0.6rem 0.75rem;
+        flex-wrap: nowrap;
+    }
+
+    .cmd-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     /* Neofetch: stack logo and info */
