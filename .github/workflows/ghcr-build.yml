@@ -1,4 +1,4 @@
-name: Build And Deploy
+name: Build And Deploy Cloud
 
 on:
   push:
@@ -119,7 +119,7 @@ jobs:
           docker push "${{ steps.img.outputs.image }}:${{ steps.vars.outputs.short_sha }}"
           docker push "${{ steps.img.outputs.image }}:${{ steps.vars.outputs.dev_version }}"
 
-      - name: Update cv-gitops image tag
+      - name: Update cv-gitops image tag for cloud
         env:
           DEV_VERSION: ${{ steps.vars.outputs.dev_version }}
           GITOPS_PUSH_USER: ${{ secrets.GITOPS_PUSH_USER }}
@@ -151,12 +151,12 @@ jobs:
           PY
 
           if git diff --quiet -- apps/cv-website/kustomization.yaml; then
-            echo "cv-gitops already up to date"
+            echo "cv-gitops cloud deployment already up to date"
             exit 0
           fi
 
           git config user.name "CV Website CI Bot"
           git config user.email "cv-website-ci-bot@users.noreply.github.com"
           git add apps/cv-website/kustomization.yaml
-          git commit -m "chore(gitops): deploy cv-website ${DEV_VERSION}"
+          git commit -m "chore(gitops): deploy cv-website cloud ${DEV_VERSION}"
           git push origin main
