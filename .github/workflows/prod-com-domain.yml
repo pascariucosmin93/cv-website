@@ -1,4 +1,4 @@
-name: PROD .com Domain Deploy
+name: PROD .com Static Web App Deploy
 
 on:
   workflow_dispatch:
@@ -38,37 +38,12 @@ jobs:
           grep -q "<!DOCTYPE html>" index.html
           grep -q "<title>" index.html
 
-      - name: Create Azure deployment package
-        run: |
-          set -euo pipefail
-          mkdir -p azure-package/css azure-package/js
-          cp index.html azure-package/
-          cp -R css/. azure-package/css/
-          cp -R js/. azure-package/js/
-
-      - name: Upload deployment artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy static files to Azure Static Web App
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          name: prod-com-azure-package
-          path: azure-package
-
-  deploy:
-    needs:
-      - validate
-    runs-on: ubuntu-latest
-    environment:
-      name: production-com
-
-    steps:
-      - name: Download deployment artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: prod-com-azure-package
-          path: azure-package
-
-      - name: Deploy static files to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME_COSMIN_LAB_COM }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_COSMIN_LAB_COM }}
-          package: azure-package
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_COSMIN_LAB_COM }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          skip_app_build: true
+          app_location: /
+          output_location: /

@@ -24,7 +24,7 @@ This repository now has two clearly separated delivery paths:
 - `cloud-release-manual.yml`
   manual release tagging flow for the `.cloud` image
 - `prod-com-domain.yml`
-  manual Azure Web App deployment for `cosmin-lab.com` without Docker
+  manual Azure Static Web App deployment for `cosmin-lab.com` without Docker
 
 ## Delivery Flow For `cosmin-lab.cloud`
 
@@ -42,15 +42,13 @@ This repository now has two clearly separated delivery paths:
 
 This keeps the default `push -> deploy` path isolated to `cosmin-lab.cloud`, while `cosmin-lab.com` can continue to be updated later in Azure only when explicitly approved.
 
-## Azure Web App Notes For `cosmin-lab.com`
+## Azure Static Web App Notes For `cosmin-lab.com`
 
-`prod-com-domain.yml` does not use Docker. It packages only the static files and deploys them to Azure Web App after a manual confirmation.
+`prod-com-domain.yml` does not use Docker. It deploys the static files directly to Azure Static Web Apps after a manual confirmation.
 
 Required GitHub repository secrets:
-- `AZURE_WEBAPP_NAME_COSMIN_LAB_COM`
-  the Azure Web App name for `cosmin-lab.com`
-- `AZURE_WEBAPP_PUBLISH_PROFILE_COSMIN_LAB_COM`
-  the publish profile downloaded from the Azure Web App
+- `AZURE_STATIC_WEB_APPS_API_TOKEN_COSMIN_LAB_COM`
+  the deployment token copied from the Azure Static Web App for `cosmin-lab.com`
 
 ## Operations Notes
 
