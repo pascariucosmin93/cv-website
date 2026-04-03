@@ -1,4 +1,4 @@
-name: CI
+name: Verify Shared Site
 
 on:
   pull_request:

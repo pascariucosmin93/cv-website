@@ -2,7 +2,11 @@
 
 Static personal CV website served by Nginx and delivered through GitHub Actions, GHCR, Argo CD, and the separate `cv-gitops` repository.
 
-The automated delivery path in this repository is intended for `cosmin-lab.cloud` only. Azure / `cosmin-lab.com` should remain a separate, manual promotion step.
+This repository now has two clearly separated delivery paths:
+- `cosmin-lab.cloud`
+  Docker-based delivery to the on-prem cluster
+- `cosmin-lab.com`
+  manual Azure Web App deployment without Docker
 
 ## Repositories
 
@@ -10,6 +14,17 @@ The automated delivery path in this repository is intended for `cosmin-lab.cloud
   application source, Docker image build, promotion workflows, and Argo CD application manifest
 - `cv-gitops`
   Kubernetes deployment manifests tracked by Argo CD
+
+## Workflows
+
+- `verify-shared-site.yml`
+  shared validation for pull requests and manual checks
+- `stg-cloud-domain.yml`
+  automatic Docker build and on-prem deployment for `cosmin-lab.cloud`
+- `cloud-release-manual.yml`
+  manual release tagging flow for the `.cloud` image
+- `prod-com-domain.yml`
+  manual Azure Web App deployment for `cosmin-lab.com` without Docker
 
 ## Delivery Flow For `cosmin-lab.cloud`
 
@@ -23,9 +38,19 @@ The automated delivery path in this repository is intended for `cosmin-lab.cloud
 
 ## Manual Promotion
 
-`promote.yml` is manual only. It can retag a tested `0.0.x` image to `1.0.0`, `1.0`, `1`, and `latest` after explicit approval.
+`cloud-release-manual.yml` is manual only. It can retag a tested `0.0.x` image to `1.0.0`, `1.0`, `1`, and `latest` after explicit approval.
 
 This keeps the default `push -> deploy` path isolated to `cosmin-lab.cloud`, while `cosmin-lab.com` can continue to be updated later in Azure only when explicitly approved.
+
+## Azure Web App Notes For `cosmin-lab.com`
+
+`prod-com-domain.yml` does not use Docker. It packages only the static files and deploys them to Azure Web App after a manual confirmation.
+
+Required GitHub repository secrets:
+- `AZURE_WEBAPP_NAME_COSMIN_LAB_COM`
+  the Azure Web App name for `cosmin-lab.com`
+- `AZURE_WEBAPP_PUBLISH_PROFILE_COSMIN_LAB_COM`
+  the publish profile downloaded from the Azure Web App
 
 ## Operations Notes
 
