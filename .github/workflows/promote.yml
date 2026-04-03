@@ -1,18 +1,18 @@
-name: Promote Release
+name: Promote Release Manually
 
 on:
   workflow_dispatch:
     inputs:
       source_tag:
-        description: "Existing tested tag to promote, for example 0.0.12"
+        description: "Existing tested cloud tag to promote, for example 0.0.12"
         required: true
         type: string
       release_version:
-        description: "Release version to publish, for example 1.0.0"
+        description: "Manual release version to publish after approval, for example 1.0.0"
         required: true
         type: string
       update_gitops:
-        description: "Also update cv-gitops to this release"
+        description: "Also update the cloud/on-prem cv-gitops deployment to this release"
         required: true
         default: false
         type: boolean
@@ -80,7 +80,7 @@ jobs:
           docker push "$IMAGE:$MINOR"
           docker push "$IMAGE:latest"
 
-      - name: Update cv-gitops to promoted version
+      - name: Update cloud cv-gitops to promoted version
         if: ${{ inputs.update_gitops }}
         env:
           RELEASE_VERSION: ${{ inputs.release_version }}
@@ -113,12 +113,12 @@ jobs:
           PY
 
           if git diff --quiet -- apps/cv-website/kustomization.yaml; then
-            echo "cv-gitops already on ${RELEASE_VERSION}"
+            echo "cv-gitops cloud deployment already on ${RELEASE_VERSION}"
             exit 0
           fi
 
           git config user.name "CV Website CI Bot"
           git config user.email "cv-website-ci-bot@users.noreply.github.com"
           git add apps/cv-website/kustomization.yaml
-          git commit -m "chore(gitops): promote cv-website ${RELEASE_VERSION}"
+          git commit -m "chore(gitops): promote cv-website cloud ${RELEASE_VERSION}"
           git push origin main
