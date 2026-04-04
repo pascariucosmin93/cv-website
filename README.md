@@ -45,3 +45,13 @@ Required GitHub repository secrets:
 ## Operations Notes
 
 - [K8s Network Policies](./k8s-network-policies/README.md)
+
+## DDoS Blocklist Integration
+
+`cosmin-lab.cloud` can consume dynamic blocked IPs from `ddos-agent`.
+
+Runtime env vars:
+- `BLOCKLIST_URL` (default: `http://ddos-agent.ddos-protection.svc.cluster.local:8080/blocklist.txt`)
+- `BLOCKLIST_SYNC_INTERVAL_SECONDS` (default: `15`)
+
+Nginx blocks requests when `CF-Connecting-IP` matches the synchronized blocklist.
