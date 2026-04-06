@@ -85,7 +85,6 @@ const terminalCommands = {
             `  <span style="color:var(--accent-blue)">"name"</span>: <span style="color:var(--accent-green)">"Cosmin Pascariu"</span>,`,
             `  <span style="color:var(--accent-blue)">"role"</span>: <span style="color:var(--accent-green)">"Cloud/DevOps Engineer"</span>,`,
             `  <span style="color:var(--accent-blue)">"email"</span>: <span style="color:var(--accent-green)">"pascariucosmin93@gmail.com"</span>,`,
-            `  <span style="color:var(--accent-blue)">"phone"</span>: <span style="color:var(--accent-green)">"+40 749 571 122"</span>,`,
             `  <span style="color:var(--accent-blue)">"location"</span>: <span style="color:var(--accent-green)">"Iasi, Romania"</span>,`,
             `  <span style="color:var(--accent-blue)">"available"</span>: <span style="color:var(--accent-orange)">true</span>,`,
             `  <span style="color:var(--accent-blue)">"languages"</span>: [<span style="color:var(--accent-green)">"Romanian"</span>, <span style="color:var(--accent-green)">"English"</span>]`,
