@@ -27,13 +27,6 @@
     { "route": "/wp-login*",   "statusCode": 403 },
     { "route": "/phpmyadmin*", "statusCode": 403 }
   ],
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": [
-      "/*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}",
-      "/*.{sql,sqlite,bak,backup,env,yml,yaml,conf,log,sh,bash,py,rb,php,ini,cfg,json}"
-    ]
-  },
   "globalHeaders": {
     "X-Frame-Options": "DENY",
     "X-Content-Type-Options": "nosniff",
