@@ -29,7 +29,10 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}"]
+    "exclude": [
+      "*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}",
+      "*.{sql,sqlite,bak,backup,env,yml,yaml,conf,log,sh,bash,py,rb,php,ini,cfg,json}"
+    ]
   },
   "responseOverrides": {
     "404": {
