@@ -10,6 +10,8 @@ on:
       - "js/**"
       - "Dockerfile"
       - ".dockerignore"
+      - "nginx.conf"
+      - "docker-entrypoint.sh"
       - ".github/workflows/**"
   workflow_dispatch:
 
@@ -106,7 +108,9 @@ jobs:
             "${{ steps.img.outputs.image }}:${{ steps.vars.outputs.dev_version }}"
 
           for _ in $(seq 1 30); do
-            if curl --silent --show-error --fail http://127.0.0.1:8080/ | grep -q "Cosmin Pascariu"; then
+            if curl --silent --show-error --fail \
+                 -H "Host: cosmin-lab.cloud" \
+                 http://127.0.0.1:8080/ | grep -q "Cosmin Pascariu"; then
               exit 0
             fi
             sleep 2

@@ -1,0 +1,47 @@
+{
+  "routes": [
+    { "route": "/*.sql",       "statusCode": 403 },
+    { "route": "/*.sqlite",    "statusCode": 403 },
+    { "route": "/*.bak",       "statusCode": 403 },
+    { "route": "/*.backup",    "statusCode": 403 },
+    { "route": "/*.env",       "statusCode": 403 },
+    { "route": "/*.yml",       "statusCode": 403 },
+    { "route": "/*.yaml",      "statusCode": 403 },
+    { "route": "/*.conf",      "statusCode": 403 },
+    { "route": "/*.log",       "statusCode": 403 },
+    { "route": "/*.sh",        "statusCode": 403 },
+    { "route": "/*.bash",      "statusCode": 403 },
+    { "route": "/*.py",        "statusCode": 403 },
+    { "route": "/*.rb",        "statusCode": 403 },
+    { "route": "/*.php",       "statusCode": 403 },
+    { "route": "/*.ini",       "statusCode": 403 },
+    { "route": "/*.cfg",       "statusCode": 403 },
+    { "route": "/*.json",      "statusCode": 403 },
+    { "route": "/aws/*",       "statusCode": 403 },
+    { "route": "/config/*",    "statusCode": 403 },
+    { "route": "/.git/*",      "statusCode": 403 },
+    { "route": "/.env",        "statusCode": 403 },
+    { "route": "/db.sql",      "statusCode": 403 },
+    { "route": "/backup.sql",  "statusCode": 403 },
+    { "route": "/wp-admin/*",  "statusCode": 403 },
+    { "route": "/wp-login*",   "statusCode": 403 },
+    { "route": "/phpmyadmin*", "statusCode": 403 }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 404
+    }
+  },
+  "globalHeaders": {
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()"
+  }
+}
