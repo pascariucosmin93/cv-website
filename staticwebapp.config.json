@@ -30,15 +30,9 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
-      "*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}",
-      "*.{sql,sqlite,bak,backup,env,yml,yaml,conf,log,sh,bash,py,rb,php,ini,cfg,json}"
+      "/*.{js,css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}",
+      "/*.{sql,sqlite,bak,backup,env,yml,yaml,conf,log,sh,bash,py,rb,php,ini,cfg,json}"
     ]
-  },
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/index.html",
-      "statusCode": 404
-    }
   },
   "globalHeaders": {
     "X-Frame-Options": "DENY",
