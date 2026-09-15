@@ -68,14 +68,15 @@ const terminalCommands = {
     experience: {
         cmd: 'git log --oneline career',
         output: () => makeLines([
-            `<span style="color:var(--accent-yellow)">a3f7b2e</span> <span style="color:var(--accent-green)">(HEAD -> main)</span> DevOps Engineer @ Endava <span style="color:var(--text-muted)">(Jun 2025 - Present)</span>`,
+            `<span style="color:var(--accent-yellow)">f8e1c4d</span> <span style="color:var(--accent-green)">(HEAD -> main)</span> Senior DevOps Engineer @ Cognizant Mobility <span style="color:var(--text-muted)">(Sep 2026 - Present)</span>`,
+            `<span style="color:var(--accent-yellow)">a3f7b2e</span> DevOps Engineer @ Endava <span style="color:var(--text-muted)">(Jun 2025 - Sep 2026)</span>`,
             `<span style="color:var(--accent-yellow)">d82ca1f</span> DevOps Engineer @ Ejobs <span style="color:var(--text-muted)">(Feb 2022 - Present)</span>`,
             `<span style="color:var(--accent-yellow)">f19e3a7</span> DevOps Engineer @ Winbet <span style="color:var(--text-muted)">(Feb 2025 - May 2025)</span>`,
             `<span style="color:var(--accent-yellow)">b4c8d21</span> System Administrator @ Coface <span style="color:var(--text-muted)">(Feb 2023 - Mar 2025)</span>`,
             `<span style="color:var(--accent-yellow)">e7f2a09</span> IT Specialist @ Magnetic IT <span style="color:var(--text-muted)">(Apr 2022 - Feb 2023)</span>`,
             `<span style="color:var(--accent-yellow)">c1d4e88</span> IT Technician @ Concord Service <span style="color:var(--text-muted)">(Nov 2015 - May 2016)</span>`,
             ` `,
-            `<span style="color:var(--text-muted)">6 commits | career branch created 2015</span>`,
+            `<span style="color:var(--text-muted)">7 commits | career branch created 2015</span>`,
         ]),
     },
     contact: {
@@ -100,7 +101,7 @@ const terminalCommands = {
  | |     | |_) |
  | |___  |  __/
   \\____| |_|
-</div><div class="neo-info"><span class="neo-label">cosmin</span>@<span class="neo-label">cloud</span><br>──────────────<br><span class="neo-label">OS:</span> DevOps Linux x86_64<br><span class="neo-label">Host:</span> Endava / Ejobs<br><span class="neo-label">Uptime:</span> ${years}y ${days}d<br><span class="neo-label">Shell:</span> bash + terraform + ansible<br><span class="neo-label">Cloud:</span> AWS, Azure, On-Prem<br><span class="neo-label">Containers:</span> Docker, K8s, Helm<br><span class="neo-label">CI/CD:</span> GitHub Actions, GitLab, ArgoCD<br><span class="neo-label">Monitoring:</span> Prometheus, Grafana, Loki<br><br><span class="neo-label">Cloud</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:90%;background:var(--accent-blue)"></span></span><br><span class="neo-label">K8s</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:85%;background:var(--accent-purple)"></span></span><br><span class="neo-label">IaC</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:90%;background:var(--accent-green)"></span></span><br><span class="neo-label">CI/CD</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:88%;background:var(--accent-orange)"></span></span></div></div></div>`;
+</div><div class="neo-info"><span class="neo-label">cosmin</span>@<span class="neo-label">cloud</span><br>──────────────<br><span class="neo-label">OS:</span> DevOps Linux x86_64<br><span class="neo-label">Host:</span> Cognizant Mobility / Ejobs<br><span class="neo-label">Uptime:</span> ${years}y ${days}d<br><span class="neo-label">Shell:</span> bash + terraform + ansible<br><span class="neo-label">Cloud:</span> AWS, Azure, On-Prem<br><span class="neo-label">Containers:</span> Docker, K8s, Helm<br><span class="neo-label">CI/CD:</span> GitHub Actions, GitLab, ArgoCD<br><span class="neo-label">Monitoring:</span> Prometheus, Grafana, Loki<br><br><span class="neo-label">Cloud</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:90%;background:var(--accent-blue)"></span></span><br><span class="neo-label">K8s</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:85%;background:var(--accent-purple)"></span></span><br><span class="neo-label">IaC</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:90%;background:var(--accent-green)"></span></span><br><span class="neo-label">CI/CD</span> <span class="neo-bar-track"><span class="neo-bar-fill" style="width:88%;background:var(--accent-orange)"></span></span></div></div></div>`;
         },
     },
 };
